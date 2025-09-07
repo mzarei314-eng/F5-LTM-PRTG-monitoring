@@ -8,7 +8,6 @@
      ```bash
      snmpwalk -v2c -c COMMUNITY F5_DEVICE_IP
      ```
-
 2. **Add Custom Sensors in PRTG**  
    - In PRTG, create a **Custom SNMP Sensor** for each OID collected.
    - Configure thresholds and alert settings as needed.
