@@ -43,3 +43,11 @@
 
 4. **Adjust in PRTG**  
    - After sensors are created, configure thresholds and alert rules as needed.
+
+## 📂 Repository Structure
+f5-prtg-monitoring/
+├── monitor.py # Python automation script
+├── requirements.txt # Python dependencies
+├── sample.xlsx # Example OID list
+├── README.md # Project documentation
+└── docs/ # (Optional) screenshots / demo
