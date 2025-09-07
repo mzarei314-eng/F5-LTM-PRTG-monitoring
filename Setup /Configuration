@@ -1,0 +1,18 @@
+## 🔧 Setup / Configuration
+
+1. **Collect OIDs**  
+   - Use `snmpwalk` from your PRTG server to gather OIDs related to:
+     - Current connections for Virtual Servers
+     - Pool Members
+   - Example command:  
+     ```bash
+     snmpwalk -v2c -c COMMUNITY F5_DEVICE_IP
+     ```
+
+2. **Add Custom Sensors in PRTG**  
+   - In PRTG, create a **Custom SNMP Sensor** for each OID collected.
+   - Configure thresholds and alert settings as needed.
+
+3. **Run Monitoring Script**  
+   - Configure device credentials in `config.py`
+   - Run `monitor.py` to automatically collect status and feed data to PRTG.
