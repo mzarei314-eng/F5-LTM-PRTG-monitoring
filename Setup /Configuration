@@ -8,10 +8,38 @@
      ```bash
      snmpwalk -v2c -c COMMUNITY F5_DEVICE_IP
      ```
-2. **Add Custom Sensors in PRTG**  
-   - In PRTG, create a **Custom SNMP Sensor** for each OID collected.
-   - Configure thresholds and alert settings as needed.
+   - Save the collected OIDs and their names in an Excel file.  
+     - Column A → Sensor name (e.g., VS1_CurrentConnections)  
+     - Column B → OID  
+
+2. **Prepare Excel File**  
+   - Make sure your Excel sheet has the right format:  
+     ```
+     | Name                  | OID              |
+     |-----------------------|------------------|
+     | VS1_CurrentConnections| 1.3.6.1.4...     |
+     | PoolMember1_Status    | 1.3.6.1.4...     |
+     ```
 
 3. **Run Monitoring Script**  
-   - Configure device credentials in `config.py`
-   - Run `monitor.py` to automatically collect status and feed data to PRTG.
+   - Install dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+   - Ensure Firefox + geckodriver are installed.  
+   - Run the script:
+     ```bash
+     python monitor.py
+     ```
+   - Enter:
+     - Path of your Excel file
+     - Sheet name
+     - Starting row  
+
+   The script will:  
+   - Open PRTG in Firefox  
+   - Wait for you to log in  
+   - Automatically add Custom SNMP Sensors using data from your Excel file  
+
+4. **Adjust in PRTG**  
+   - After sensors are created, configure thresholds and alert rules as needed.
